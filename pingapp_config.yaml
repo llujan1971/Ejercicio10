@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pingapp-configmap
+  namespace: ejer10
+data:
+  CONFIG_LOCATION: Laura
+  DEVELOPER: Laura
