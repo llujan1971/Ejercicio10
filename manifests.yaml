@@ -53,8 +53,8 @@ kind: Ingress
 metadata:
   name: pingapp
     annotations:
-    dev.okteto.com/generate-host: "true"
-    dev.okteto.com/private: "false"
+      dev.okteto.com/generate-host: "true"
+      dev.okteto.com/private: "false"
 spec:
   rules:
   - http:
