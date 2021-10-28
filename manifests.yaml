@@ -12,9 +12,14 @@ metadata:
   name: pingapp
   labels:
     app: pingapp
+  annotations:
+    dev.okteto.com/auto-ingress: "private"  
 spec:
+  type: ClusterIP
   ports:
-   - port: 4567
+    - port: 8080
+      protocol: TCP
+      targetPort: 4567
   selector:
    app: pingapp
 ---
@@ -47,17 +52,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: pingapp
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    annotations:
+    dev.okteto.com/generate-host: "true"
+    dev.okteto.com/private: "false"
 spec:
   rules:
-  - host: pingapp.llujan1971.cloud.okteto.net
   - http:
       paths:
-      - path: /pingapp
-        pathType: Prefix
-        backend:
-          service:
-            name: pingapp
-            port:
-              number: 4567
+      - backend:
+          serviceName: pingapp
+          servicePort: 8080
+        path: /
