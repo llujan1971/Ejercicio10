@@ -2,9 +2,12 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: pingapp-configmap
+  labels:
+    app: pingapp-configmap
 data:
-  CONFIG_LOCATION: Laura
   DEVELOPER: Laura
+  CONFIG_LOCATION: /mydata/config.json 
+
 ---
 apiVersion: v1
 kind: Service
