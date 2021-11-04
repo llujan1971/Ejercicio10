@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: pingapp-configmap
 data:
-  CONFIG_LOCATION: /mydata/config.json
+  CONFIG_LOCATION: Laura
   DEVELOPER: Laura
 ---
 apiVersion: v1
